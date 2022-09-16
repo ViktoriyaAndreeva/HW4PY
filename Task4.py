@@ -11,14 +11,16 @@ if n != 0:
     def make(n):
         result = []
         for i in range(n):
-            if koeff[i] > 1 and n - i > 1:
-                result.append(f'{str(koeff[i])}x**{n - i}')
-            elif koeff[i] > 1 and n - i == 1:
-                result.append(f'{str(koeff[i])}x')
-            elif koeff[i] == 1 and n - i > 1:
-                result.append(f'x**{n - i})')
-            elif koeff[i] == 1 and n - 1 == 1:
-                result.append('x')
+            if koeff[i] > 1:
+                if n - i > 1:
+                    result.append(f'{str(koeff[i])}x**{n - i}')
+                elif n - i == 1:
+                    result.append(f'{str(koeff[i])}x')
+            elif koeff[i] == 1:
+                if n - i > 1:
+                    result.append(f'x**{n - i})')
+                elif n - 1 == 1:
+                    result.append('x')
         if koeff[-1] != 0:
                 result.append(str(koeff[-1]))   
         return ' + '.join(result) + ' = 0' 
